@@ -1,0 +1,35 @@
+﻿<div class="question-holder" style="margin-top: 10px;">
+    <div class="title">
+        <p>@label @number. @question</p>
+    </div>
+
+    <div>
+        <div><input name="@number.ToString()-choice" @onclick=@(() => { if (personalWork is not null) personalWork[number] = answerA; } ) type="radio" value="A" /> @answerA</div>
+        <div><input name="@number.ToString()-choice" @onclick=@(() => { if (personalWork is not null) personalWork[number] = answerB; } ) type="radio" value="B" /> @answerB</div>
+        <div><input name="@number.ToString()-choice" @onclick=@(() => { if (personalWork is not null) personalWork[number] = answerC; } ) type="radio" value="C" /> @answerC</div>
+        <div><input name="@number.ToString()-choice" @onclick=@(() => { if (personalWork is not null) personalWork[number] = answerD; } ) type="radio" value="D" /> @answerD</div>
+    </div>
+</div>
+
+
+
+@code {
+    [Parameter]
+    public Dictionary<int, string> personalWork { get; set; } = null;
+    [Parameter]
+    public int number { get; set; }
+    [Parameter]
+    public string question { get; set; }
+    [Parameter]
+    public string answerA { get; set; }
+    [Parameter]
+    public string answerB { get; set; }
+    [Parameter]
+    public string answerC { get; set; }
+    [Parameter]
+    public string answerD { get; set; }
+    [Parameter]
+    public string label { get; set; } = "Question";
+}
+
+
